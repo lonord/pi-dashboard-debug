@@ -1,0 +1,52 @@
+{
+  "name": "@lonord/pi-dashboard-debug",
+  "version": "1.0.0",
+  "description": "Debugger for module of pi dashboard",
+  "main": "lib/",
+  "bin": {
+    "pi-dashboard-debug": "lib/main/cli.js"
+  },
+  "scripts": {
+    "build": "rimraf lib && tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonord/pi-dashboard-debug.git"
+  },
+  "keywords": [
+    "raspberrypi",
+    "debug",
+    "module"
+  ],
+  "author": "Loy B. <lonord@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lonord/pi-dashboard-debug/issues"
+  },
+  "homepage": "https://github.com/lonord/pi-dashboard-debug#readme",
+  "peerDependencies": {
+    "@lonord/react-electron-components": "^1.0.11",
+    "styled-components": "^3.1.6",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@lonord/react-electron-components": "^1.0.11",
+    "@types/node": "^9.4.6",
+    "rimraf": "^2.6.2",
+    "styled-components": "^3.1.6",
+    "tslint": "^5.9.1",
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.7.2",
+    "typescript-styled-plugin": "^0.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "dependencies": {
+    "@lonord/electron-renderer-ts-compiler": "^1.1.4",
+    "electron": "^1.8.2",
+    "electron-devtools-installer": "^2.2.3",
+    "mkdirp": "^0.5.1"
+  }
+}
