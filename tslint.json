@@ -57,6 +57,7 @@
         "forin": false,
         "radix": false,
         "align": [
+            true,
             "statements"
         ],
         "arrow-parens": false,
