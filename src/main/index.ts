@@ -4,6 +4,10 @@ import { app, BrowserWindow } from 'electron'
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 import * as path from 'path'
 import * as url from 'url'
+import * as cfg from './config'
+
+// tslint:disable-next-line:no-string-literal
+global['config'] = cfg
 
 const tsCompiler = createTsCompiler()
 let mainWindow: BrowserWindow
