@@ -8,8 +8,12 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Electron Main",
-			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-			"program": "${workspaceFolder}/lib/main/index.js",
+			"runtimeExecutable": "${workspaceFolder}/lib/main/cli.js",
+			"args": [
+				"${workspaceFolder}/example",
+				"-p",
+				"tsconfig.json"
+			],
 			"preLaunchTask": "build"
 		}
 	]

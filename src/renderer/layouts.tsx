@@ -22,6 +22,6 @@ export const ContentArea = withFlexHorizental(FlexItemAdaptive.extend`
 
 export const ParamsArea = withFlexVertical(FlexItemAdaptive)
 
-export const ComponentDisplayArea = FlexItemFix.extend`
+export const ComponentDisplayArea = withFlexVertical(FlexItemFix.extend`
 	width: 400px;
-`
+`)

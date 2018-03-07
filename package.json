@@ -7,7 +7,7 @@
     "pi-dashboard-debug": "lib/main/cli.js"
   },
   "scripts": {
-    "build": "rimraf lib && tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json",
+    "build": "rimraf lib && tsc -p tsconfig.main.json && tsc -p tsconfig.renderer.json && chmod +x lib/main/cli.js",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -39,14 +39,16 @@
     "rimraf": "^2.6.2",
     "styled-components": "^3.1.6",
     "tslint": "^5.9.1",
-    "tslint-react": "^3.5.1",
-    "typescript": "^2.7.2",
-    "typescript-styled-plugin": "^0.6.0"
+    "tslint-react": "^3.5.1"
   },
   "dependencies": {
     "@lonord/electron-renderer-ts-compiler": "^1.1.4",
+    "commander": "^2.14.1",
     "electron": "^1.8.2",
     "electron-devtools-installer": "^2.2.3",
-    "mkdirp": "^0.5.1"
+    "lodash.debounce": "^4.0.8",
+    "mkdirp": "^0.5.1",
+    "typescript": "^2.7.2",
+    "typescript-styled-plugin": "^0.6.0"
   }
 }
