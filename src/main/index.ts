@@ -9,6 +9,9 @@ import * as cfg from './config'
 // tslint:disable-next-line:no-string-literal
 global['config'] = cfg
 
+// tslint:disable-next-line:no-string-literal
+global['modulePath'] = '' // TODO
+
 const tsCompiler = createTsCompiler()
 let mainWindow: BrowserWindow
 

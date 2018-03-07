@@ -1,4 +1,4 @@
-import { existsSync, readFile, writeFile, writeFileSync } from 'fs'
+import { existsSync, readFile, readFileSync, writeFile, writeFileSync } from 'fs'
 import * as mkdirp from 'mkdirp'
 import { homedir } from 'os'
 import { join } from 'path'
@@ -23,9 +23,9 @@ async function writeProperties(props: any) {
 	}
 }
 
-async function readProperties() {
+function readProperties() {
 	try {
-		const content = await readFileAsync(propertiesFile, 'utf8')
+		const content = readFileSync(propertiesFile, 'utf8')
 		return JSON.parse(content)
 	} catch (e) {
 		console.error(e)

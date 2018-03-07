@@ -1,4 +1,10 @@
-import { FlexItemAdaptive, FlexItemFix, FlexVertical, withFlexHorizental } from '@lonord/react-electron-components'
+import {
+	FlexItemAdaptive,
+	FlexItemFix,
+	FlexVertical,
+	withFlexHorizental,
+	withFlexVertical
+} from '@lonord/react-electron-components'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -14,7 +20,7 @@ export const ContentArea = withFlexHorizental(FlexItemAdaptive.extend`
 	padding: 4px;
 `)
 
-export const ParamsArea = FlexItemAdaptive
+export const ParamsArea = withFlexVertical(FlexItemAdaptive)
 
 export const ComponentDisplayArea = FlexItemFix.extend`
 	width: 400px;

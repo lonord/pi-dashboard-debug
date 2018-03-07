@@ -41,7 +41,7 @@ export default class PropItem extends React.Component<PropItemProps, any> {
 }
 
 const Wrap = withFlexAlignItemsCenter(FlexHorizental.extend`
-	padding: 8px 8px 0;
+	padding: 4px 4px 0;
 `)
 
 const NameText = styled.span`
@@ -60,6 +60,7 @@ const ValueText = styled.span`
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	margin-left: 5px;
 `
 
 const DeleteButton = styled(IconButton) `

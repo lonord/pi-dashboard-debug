@@ -1,6 +1,7 @@
-import { FlexHorizental, IconButton, withFlexAlignItemsCenter } from '@lonord/react-electron-components'
+import { Button, FlexHorizental, withFlexAlignItemsCenter } from '@lonord/react-electron-components'
 import * as React from 'react'
 import styled from 'styled-components'
+import RadioGroup from './radio-group'
 
 export interface PropInputProps {
 	onComplete(name: string, value: any)
@@ -29,6 +30,12 @@ export default class PropInput extends React.Component<PropInputProps, PropInput
 	onDataTypeChange = (type: string) => {
 		this.setState({
 			type: type as DataType
+		})
+	}
+
+	onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		this.setState({
+			name: e.target.value
 		})
 	}
 
@@ -102,7 +109,7 @@ export default class PropInput extends React.Component<PropInputProps, PropInput
 		} else if (type === 'boolean') {
 			pValueComp = (
 				<ValueInputWrap>
-					<RadioGroup
+					<InputRadioGroup
 						identifier="data-boolean"
 						textList={['FALSE', 'TRUE']}
 						valueList={['FALSE', 'TRUE']}
@@ -118,9 +125,9 @@ export default class PropInput extends React.Component<PropInputProps, PropInput
 		return (
 			<div>
 				<Label>属性名</Label>
-				<NameInput />
+				<NameInput value={name} onChange={this.onNameChange}/>
 				<Label>属性类型</Label>
-				<RadioGroup
+				<InputRadioGroup
 					identifier="data-type"
 					textList={['STR', 'NUM', 'BOOL', 'NULL', 'JSON']}
 					valueList={['string', 'number', 'boolean', 'null', 'json']}
@@ -129,7 +136,7 @@ export default class PropInput extends React.Component<PropInputProps, PropInput
 				<Label>属性值</Label>
 				{pValueComp}
 				<FooterWrap>
-					<OKButton icon="check-circle" onClick={this.onOK} />
+					<OKButton onClick={this.onOK}>新增</OKButton>
 					{error
 						? <ErrorText>{error}</ErrorText>
 						: null}
@@ -146,38 +153,14 @@ const Label = styled.div`
 
 const NameInput = styled.input`
 	width: 300px;
-	height: 40px;
+	height: 30px;
 	padding: 4px;
 	font-size: 14px;
 	margin-bottom: 10px;
+	border: 1px solid #eee;
 `
 
-interface RawRadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-	identifier: string
-	textList: string[]
-	valueList: string[]
-	value: string
-	onValueChange(value: string)
-}
-const RawRadioGroup: React.SFC<RawRadioGroupProps> = (props) => {
-	const { identifier,  textList, valueList, value, onValueChange, children, ...rest } = props
-	return (
-		<div {...rest}>
-			{textList.map((text, idx) => (
-				<span key="idx">
-					<input
-						name={identifier}
-						type="radio"
-						value={valueList[idx]}
-						checked={value === valueList[idx]}
-						onChange={() => onValueChange(valueList[idx])} />
-					<span>{text}</span>
-				</span>
-			))}
-		</div>
-	)
-}
-const RadioGroup = styled(RawRadioGroup) `
+const InputRadioGroup = styled(RadioGroup) `
 	font-size: 14px;
 	margin-bottom: 10px;
 `
@@ -189,25 +172,29 @@ const ValueInputWrap = styled.div`
 
 const TextValueInput = styled.input`
 	width: 300px;
-	height: 40px;
+	height: 30px;
 	padding: 4px;
+	border: 1px solid #eee;
 `
 
 const TextAreaValueInput = styled.textarea`
 	width: 300px;
-	height: 200px;
+	height: 100px;
 	padding: 4px;
+	border: 1px solid #eee;
 `
 
 const FooterWrap = withFlexAlignItemsCenter(FlexHorizental)
 
-const OKButton = styled(IconButton) `
+const OKButton = styled(Button) `
 	color: green;
 	font-size: 14px;
+	padding: 5px 8px;
 `
 
 const ErrorText = styled.span`
 	font-size: 14px;
 	display: inline-block;
 	margin-left: 30px;
+	color: red;
 `
