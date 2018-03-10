@@ -5,7 +5,7 @@ class App extends React.Component<any, any> {
 	render() {
 		return (
 			<Wrap>
-				123
+				{JSON.stringify(this.props)}
 			</Wrap>
 		)
 	}

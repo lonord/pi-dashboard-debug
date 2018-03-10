@@ -125,7 +125,12 @@ export default class Main extends React.Component<any, MainState> {
 	}
 
 	doSaveProperties = () => {
-		// TODO
+		this.properties[modulePath] = this.state.propsMap
+		const np = {
+			...this.properties,
+			[modulePath]: this.state.propsMap
+		}
+		configUtil.writeProperties(np)
 	}
 
 	saveProperties = debounce(this.doSaveProperties, 3000)
@@ -175,7 +180,7 @@ export default class Main extends React.Component<any, MainState> {
 				<ComponentDisplayArea>
 					<ModuleContentWrap>
 						<ItemWrap onLongTap={this.showAboutModule}>
-							<Comp updateProps={this.updateModuleProps}/>
+							<Comp {...propsMap} updateProps={this.updateModuleProps}/>
 						</ItemWrap>
 						<ModuleAboutDialog
 							isOpen={isAboutOpen}
