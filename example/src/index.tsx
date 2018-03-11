@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 class App extends React.Component<any, any> {
 	render() {
+		if (this.props.err) {
+			throw new Error('Error!!!')
+		}
 		return (
 			<Wrap>
 				{JSON.stringify(this.props)}

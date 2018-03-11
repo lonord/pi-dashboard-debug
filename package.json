@@ -1,6 +1,6 @@
 {
   "name": "@lonord/pi-dashboard-debug",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Debugger for module of pi dashboard",
   "main": "lib/",
   "bin": {
@@ -29,7 +29,9 @@
     "@lonord/react-electron-components": "^1.0.11",
     "styled-components": "^3.1.6",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "typescript": "^2.7.2",
+    "typescript-styled-plugin": "^0.6.0"
   },
   "devDependencies": {
     "@lonord/react-electron-components": "^1.0.11",
@@ -39,7 +41,9 @@
     "rimraf": "^2.6.2",
     "styled-components": "^3.1.6",
     "tslint": "^5.9.1",
-    "tslint-react": "^3.5.1"
+    "tslint-react": "^3.5.1",
+    "typescript": "^2.7.2",
+    "typescript-styled-plugin": "^0.6.0"
   },
   "dependencies": {
     "@lonord/electron-renderer-ts-compiler": "^1.1.4",
@@ -47,8 +51,6 @@
     "electron": "^1.8.2",
     "electron-devtools-installer": "^2.2.3",
     "lodash.debounce": "^4.0.8",
-    "mkdirp": "^0.5.1",
-    "typescript": "^2.7.2",
-    "typescript-styled-plugin": "^0.6.0"
+    "mkdirp": "^0.5.1"
   }
 }

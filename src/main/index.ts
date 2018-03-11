@@ -34,7 +34,6 @@ const modulePathStat = statSync(modulePath)
 const modulePathDir = modulePathStat.isDirectory() ? modulePath : path.dirname(modulePath)
 const tsCompiler = createTsCompiler({
 	cwd: modulePathDir,
-	tsc: path.join(__dirname, '../../node_modules/.bin/tsc'),
 	tsconfig: program.project || 'tsconfig.json'
 })
 let mainWindow: BrowserWindow
