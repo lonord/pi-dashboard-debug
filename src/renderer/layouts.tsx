@@ -20,7 +20,9 @@ export const ContentArea = withFlexHorizental(FlexItemAdaptive.extend`
 	padding: 4px;
 `)
 
-export const ParamsArea = withFlexVertical(FlexItemAdaptive)
+export const ParamsArea = withFlexVertical(FlexItemAdaptive.extend`
+	user-select: text;
+`)
 
 export const ComponentDisplayArea = withFlexVertical(FlexItemFix.extend`
 	width: 400px;
