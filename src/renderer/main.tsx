@@ -117,6 +117,7 @@ export default class Main extends React.Component<any, MainState> {
 
 	updateModuleProps = (moduleProps: any) => {
 		const newProperties = {
+			...this.state.propsMap,
 			...moduleProps
 		}
 		this.setState({
