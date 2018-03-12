@@ -1,6 +1,6 @@
 {
   "name": "@lonord/pi-dashboard-debug",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Debugger for module of pi dashboard",
   "main": "lib/",
   "bin": {

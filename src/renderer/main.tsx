@@ -52,8 +52,8 @@ export default class Main extends React.Component<any, MainState> {
 	properties = configUtil.readProperties()
 
 	state: MainState = {
-		sizeType: 'normal',
-		propsMap: this.properties[modulePath],
+		sizeType: getModuleProps(this.properties, modulePath).__size__ || 'normal',
+		propsMap: getModuleProps(this.properties, modulePath),
 		isAddPropsDialogOpen: false,
 		isAboutOpen: false,
 		aboutModuleName: '',
@@ -64,7 +64,7 @@ export default class Main extends React.Component<any, MainState> {
 	onSizeTypeChange = (value: string) => {
 		this.setState({
 			sizeType: value
-		})
+		}, () => this.saveProperties())
 	}
 
 	onDeleteProp = (name: string) => {
@@ -126,10 +126,12 @@ export default class Main extends React.Component<any, MainState> {
 	}
 
 	doSaveProperties = () => {
-		this.properties[modulePath] = this.state.propsMap
+		this.properties[modulePath] = {
+			...this.state.propsMap,
+			__size__: this.state.sizeType
+		}
 		const np = {
-			...this.properties,
-			[modulePath]: this.state.propsMap
+			...this.properties
 		}
 		configUtil.writeProperties(np)
 	}
@@ -146,7 +148,8 @@ export default class Main extends React.Component<any, MainState> {
 			aboutModuleID,
 			aboutModuleVersion
 		} = this.state
-		const propsList = map2List(propsMap)
+		const { __size__, ...pm } = propsMap
+		const propsList = map2List(pm)
 		const ItemWrap = sizeType === 'small' ? SmallModuleItem : ModuleItem
 		const { Comp } = moduleItem
 		return (
@@ -181,7 +184,7 @@ export default class Main extends React.Component<any, MainState> {
 				<ComponentDisplayArea>
 					<ModuleContentWrap>
 						<ItemWrap onLongTap={this.showAboutModule}>
-							<Comp {...propsMap} updateProps={this.updateModuleProps}/>
+							<Comp {...pm} updateProps={this.updateModuleProps}/>
 						</ItemWrap>
 						<ModuleAboutDialog
 							isOpen={isAboutOpen}
@@ -231,4 +234,8 @@ function map2List(map: { [key: string]: any }) {
 		})
 	}
 	return list
+}
+
+function getModuleProps(properties: any, modulePath: string) {
+	return properties[modulePath] || {}
 }
