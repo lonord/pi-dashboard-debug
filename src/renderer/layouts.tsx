@@ -12,10 +12,6 @@ export const Body = FlexVertical.extend`
 	height: 100%;
 `
 
-export const HeaderArea = FlexItemFix.extend`
-	height: 20px;
-`
-
 export const ContentArea = withFlexHorizental(FlexItemAdaptive.extend`
 	padding: 4px;
 `)

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled, { injectGlobal } from 'styled-components'
-import { Body, HeaderArea } from './layouts'
+import { Body } from './layouts'
 import Main from './main'
 
 injectGlobal`
@@ -30,7 +30,6 @@ injectGlobal`
 
 export default () => (
 	<Body>
-		<HeaderArea />
 		<Main />
 	</Body>
 )

@@ -46,8 +46,7 @@ function createWindow() {
 		minWidth: 800,
 		minHeight: 600,
 
-		title: 'Pi Dashboard Module Debugger',
-		titleBarStyle: 'hiddenInset'
+		title: 'Pi Dashboard Module Debugger'
 	})
 
 	// and load the index.html of the app.
